@@ -1,8 +1,4 @@
-/* =============================================
-   COACH VICKY – Script Principal
-   ============================================= */
-
-// ---- CUSTOM CURSOR ----
+/* Curseur personnalisé */
 const cursor = document.querySelector('.cursor');
 const cursorRing = document.querySelector('.cursor-ring');
 
@@ -26,19 +22,19 @@ if (cursor && cursorRing) {
   });
 }
 
-// ---- NAVBAR ----
+/* Navbar au scroll */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// ---- HAMBURGER ----
+/* Menu hamburger */
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-// ---- SCROLL REVEAL ----
+/* Apparition au scroll */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -50,7 +46,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ---- COUNTER ----
+/* Compteurs animés */
 function animateCount(el, target, dur = 2000) {
   let start = 0;
   const step = target / (dur / 16);
@@ -76,7 +72,7 @@ new IntersectionObserver((entries) => {
   }
 }, { threshold: 0.3 }).observe(statsBar);
 
-// ---- LIGHTBOX ----
+/* Lightbox galerie */
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lb-img');
 const lbClose = document.getElementById('lb-close');
@@ -97,7 +93,7 @@ lbClose.addEventListener('click', closeLb);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-// ---- FORM ----
+/* Formulaire de contact */
 const form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', e => {
@@ -115,7 +111,7 @@ if (form) {
   });
 }
 
-// ---- SMOOTH SCROLL ----
+/* Scroll fluide */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -126,7 +122,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ---- ACTIVE NAV ----
+/* Lien de nav actif */
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
   let current = '';
